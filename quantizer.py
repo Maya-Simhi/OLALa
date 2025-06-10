@@ -125,6 +125,8 @@ class LatticeQuantization:
                 while len(remaining_distances) > 1 and torch.var(remaining_distances) > variance_threshold and counter <= 10:
                     remaining_distances =remaining_distances[1:]  # Remove the largest distance
                     counter = counter +1
+            elif self.overloading == 0:
+                print(f"nothing to overload")
             else:
                 precent = self.overloading
                 max_counter =precent*len(sorted_distances)/100
